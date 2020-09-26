@@ -16,4 +16,12 @@ export class AppComponent {
     'Sobota',
     'Niedziela',
   ];
+  isVisible = true;
+  isHidden = false;
+  show = () => {
+    this.isVisible = !this.isVisible;
+  };
+  hidden = () => {
+    this.isHidden = !this.isHidden;
+  };
 }
