@@ -3,7 +3,7 @@
 <p>Ten pracownik to {{ profession }}, a jego umiejętność to {{ skill }}</p>
 
 <label for="male">Zawód</label>
-<input [value]="profession" (input)="saveP($event)" />
+<input [(ngModel)]="profession" />
 <br />
 <label for="male">Umiejętności</label>
-<input [value]="skill" (input)="saveS($event)" />
+<input [(ngModel)]="skill" />

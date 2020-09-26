@@ -10,11 +10,4 @@ export class AppComponent {
   skill = 'Angular';
 
   constructor() {}
-
-  saveP(event): void {
-    this.profession = event.target.value;
-  }
-  saveS(event): void {
-    this.skill = event.target.value;
-  }
 }
