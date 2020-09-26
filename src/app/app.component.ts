@@ -6,12 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  inputText = 'Przykładowy tekst';
-  inputText2Way = ' ';
-  button = true;
-  showClick = '';
-  click = (event) => {
-    this.showClick = 'Przycisk aktywny!';
-    this.button = false;
+  inputText = 'Tekst';
+  maxLength = 5;
+  colorClass = 'color';
+  logoUrl = '';
+  isDisable = true;
+  constructor() {
+    setTimeout(() => {
+      this.isDisable = false;
+    }, 3000);
+  }
+  change = () => {
+    this.inputText = 'Zmiana tekstu i koloru';
+    this.maxLength = 10;
+    this.colorClass = 'color2';
+    this.logoUrl = 'https://angular.io/assets/images/logos/angular/angular.png';
   };
 }

@@ -1,16 +1,8 @@
-<h3>Angular kurs - property binding</h3>
-<div>
-  <!--Bindowanie zmiennej do wartości value-->
-  <input [value]="inputText" />
-</div>
-<div>
-  <!--Dwustronne bindowanie-->
-  <input [(ngModel)]="inputText2Way" />
-  {{ inputText2Way }}
-</div>
-<div>
-  <!--Bindowanie eventu, zmiennej oraz interpolacja-->
-  <input (click)="click($event)" />
-  <button [disabled]="button">Dodaj</button>
-  {{ showClick }}
-</div>
+<!--To są jakby atrybuty w htmlu, tylko dynamiczne(wartości są pobierane z klasy)-->
+<h3 [className]="colorClass">Angular kurs - property binding</h3>
+<!--Bindowanie jednostronne, zmienia widok tylko w html.
+Nie wpływa to na zmienne w komponencie-->
+<img [src]="logoUrl" />
+<input [max]="maxLength" [value]="inputText" />
+
+<button [disabled]="isDisable" (click)="change()">Dodaj</button>
