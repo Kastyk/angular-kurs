@@ -1,25 +1,14 @@
 <h3>Witamy na kursie {{ title | uppercase }}</h3>
 <p>Dni tygodnia</p>
-<ul>
-  <!--Tworzymy zmienną day, która odpowiada za aktualny element w tablicy days-->
-  <!--ng-container to znacznik neutralny dla styli, w którym możemy grupować jakieś dyrektywy-->
-  <ng-container *ngFor="let day of days; let e = even">
-    <li *ngIf="e">{{ day }}</li>
-  </ng-container>
-</ul>
-<!--To nie muszą być tylko elementy listy, mogą być też divy-->
-<!--index, może być też: last, first, even, odd-->
-<ng-container *ngIf="dogs.length > 0; then areDogs; else noDogs"></ng-container>
-<ng-template #areDogs>
-  <div *ngFor="let dog of dogs; let i = index">
-    Mój pies ma na imię: {{ dog.name }}, ma {{ dog.age }} lata.
-  </div>
-</ng-template>
-<ng-template #noDogs>
-  <p>Nie ma piesków :(</p>
-</ng-template>
 
-<button (click)="addDogs()">Dodaj</button>
-<button (click)="removeDogs()">Usuń</button>
-<!--Tworzenie czterech takich samych elementów
-<app-nowy *ngFor="let i of [1, 2, 3, 4]"></app-nowy>-->
+<div *ngFor="let day of days">
+  <div [ngSwitch]="day">
+    <div *ngSwitchCase="'Poniedziałek'">Lunedi</div>
+    <div *ngSwitchCase="'Wtorek'">Martedi</div>
+    <div *ngSwitchCase="'Środa'">Mercoledi</div>
+    <div *ngSwitchCase="'Czwartek'">Giovedi</div>
+    <div *ngSwitchCase="'Piątek'">Venerdi</div>
+    <div *ngSwitchCase="'Sobota'">Sabato</div>
+    <div *ngSwitchDefault>Domenica</div>
+  </div>
+</div>
