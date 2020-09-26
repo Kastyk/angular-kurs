@@ -6,22 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Angulara';
-  days = [
-    'Poniedziałek',
-    'Wtorek',
-    'Środa',
-    'Czwartek',
-    'Piątek',
-    'Sobota',
-    'Niedziela',
-  ];
-  isVisible = true;
-  isHidden = false;
-  show = () => {
-    this.isVisible = !this.isVisible;
-  };
-  hidden = () => {
-    this.isHidden = !this.isHidden;
+  inputText = 'Przykładowy tekst';
+  inputText2Way = ' ';
+  button = true;
+  showClick = '';
+  click = (event) => {
+    this.showClick = 'Przycisk aktywny!';
+    this.button = false;
   };
 }

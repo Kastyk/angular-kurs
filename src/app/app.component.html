@@ -1,18 +1,16 @@
-<h3>Witamy na kursie {{ title | uppercase }}</h3>
-
-<p>Dni tygodnia - użycie ngIf</p>
-
-<ng-container *ngIf="isVisible">
-  <div *ngFor="let day of days">
-    <div>{{ day }}</div>
-  </div>
-</ng-container>
-<button (click)="show()">NgIf</button>
-<br />
-<p>Dni tygodnia - użycie hidden</p>
-<div [hidden]="isHidden">
-  <div *ngFor="let day of days">
-    <div>{{ day }}</div>
-  </div>
+<h3>Angular kurs - property binding</h3>
+<div>
+  <!--Bindowanie zmiennej do wartości value-->
+  <input [value]="inputText" />
 </div>
-<button (click)="hidden()">Hidden</button>
+<div>
+  <!--Dwustronne bindowanie-->
+  <input [(ngModel)]="inputText2Way" />
+  {{ inputText2Way }}
+</div>
+<div>
+  <!--Bindowanie eventu, zmiennej oraz interpolacja-->
+  <input (click)="click($event)" />
+  <button [disabled]="button">Dodaj</button>
+  {{ showClick }}
+</div>
