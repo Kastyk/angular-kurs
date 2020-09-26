@@ -1,4 +1,11 @@
-<app-test></app-test>
-<app-test></app-test>
-<app-test2></app-test2>
-<app-test3></app-test3>
+<p>
+  Witamy na kursie {{ title | uppercase }}<br />
+  Liczba pi to: {{ pi | number: '1.1-2' }}
+  <br /><!--Jedna liczba, potem albo 1 albo 2-->
+  Dzisiaj jest: {{ date | date: 'dd-MM-yyyy' }} <br />
+  {{ showDog() }} <br />
+  <!--? i && oznaczają wyświetlanie warunkowe-->
+  Imię drugiego psa: {{ dog1?.name }} <br />
+  Wiek drugiego psa: {{ dog1 && dog1.age }} <br />
+</p>
+<p>Działania na liczbach: {{ 2 + 2 }}</p>
