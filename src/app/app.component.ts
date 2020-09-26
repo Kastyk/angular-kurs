@@ -7,19 +7,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   inputText = 'Tekst';
-  maxLength = 5;
   colorClass = 'color';
-  logoUrl = '';
   isDisable = true;
-  constructor() {
-    setTimeout(() => {
-      this.isDisable = false;
-    }, 3000);
-  }
-  change = () => {
-    this.inputText = 'Zmiana tekstu i koloru';
-    this.maxLength = 10;
+
+  constructor() {}
+
+  onFocus(): void {
     this.colorClass = 'color2';
-    this.logoUrl = 'https://angular.io/assets/images/logos/angular/angular.png';
-  };
+  }
+  onClick(event): void {
+    console.log(event);
+  }
+  onMouseMove(event): void {
+    console.log(`x: ${event.clientX}, y: ${event.clientY}`);
+  }
+  onPaste(event): void {
+    this.inputText = 'Nie wklejaj, wpisz!';
+    event.target.value = '';
+  }
+  change(): void {
+    this.isDisable = !this.isDisable;
+  }
 }

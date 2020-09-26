@@ -1,8 +1,10 @@
-<!--To są jakby atrybuty w htmlu, tylko dynamiczne(wartości są pobierane z klasy)-->
 <h3 [className]="colorClass">Angular kurs - property binding</h3>
-<!--Bindowanie jednostronne, zmienia widok tylko w html.
-Nie wpływa to na zmienne w komponencie-->
-<img [src]="logoUrl" />
-<input [max]="maxLength" [value]="inputText" />
-
-<button [disabled]="isDisable" (click)="change()">Dodaj</button>
+<input [disabled]="isDisable" (focus)="onFocus()" />
+<br />
+<input [disabled]="isDisable" (click)="onClick($event)" />
+<br />
+<input [disabled]="isDisable" (mousemove)="onMouseMove($event)" />
+<br />
+<input [disabled]="isDisable" (paste)="onPaste($event)" />{{ inputText }}
+<br />
+<button (click)="change()">Zmiana</button>
