@@ -1,11 +1,25 @@
-<p>
-  Witamy na kursie {{ title | uppercase }}<br />
-  Liczba pi to: {{ pi | number: '1.1-2' }}
-  <br /><!--Jedna liczba, potem albo 1 albo 2-->
-  Dzisiaj jest: {{ date | date: 'dd-MM-yyyy' }} <br />
-  {{ showDog() }} <br />
-  <!--? i && oznaczają wyświetlanie warunkowe-->
-  Imię drugiego psa: {{ dog1?.name }} <br />
-  Wiek drugiego psa: {{ dog1 && dog1.age }} <br />
-</p>
-<p>Działania na liczbach: {{ 2 + 2 }}</p>
+<h3>Witamy na kursie {{ title | uppercase }}</h3>
+<p>Dni tygodnia</p>
+<ul>
+  <!--Tworzymy zmienną day, która odpowiada za aktualny element w tablicy days-->
+  <!--ng-container to znacznik neutralny dla styli, w którym możemy grupować jakieś dyrektywy-->
+  <ng-container *ngFor="let day of days; let e = even">
+    <li *ngIf="e">{{ day }}</li>
+  </ng-container>
+</ul>
+<!--To nie muszą być tylko elementy listy, mogą być też divy-->
+<!--index, może być też: last, first, even, odd-->
+<ng-container *ngIf="dogs.length > 0; then areDogs; else noDogs"></ng-container>
+<ng-template #areDogs>
+  <div *ngFor="let dog of dogs; let i = index">
+    Mój pies ma na imię: {{ dog.name }}, ma {{ dog.age }} lata.
+  </div>
+</ng-template>
+<ng-template #noDogs>
+  <p>Nie ma piesków :(</p>
+</ng-template>
+
+<button (click)="addDogs()">Dodaj</button>
+<button (click)="removeDogs()">Usuń</button>
+<!--Tworzenie czterech takich samych elementów
+<app-nowy *ngFor="let i of [1, 2, 3, 4]"></app-nowy>-->
