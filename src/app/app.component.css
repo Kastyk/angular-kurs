@@ -1,6 +1,4 @@
-.color {
-  color: blue;
-}
-.color2 {
-  color: pink;
+.container {
+  display: flex;
+  justify-content: center;
 }

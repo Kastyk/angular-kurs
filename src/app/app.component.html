@@ -1,9 +1,30 @@
-<h3>Angular kurs - property binding</h3>
-
-<p>Ten pracownik to {{ profession }}, a jego umiejętność to {{ skill }}</p>
-
-<label for="male">Zawód</label>
-<input [(ngModel)]="profession" />
-<br />
-<label for="male">Umiejętności</label>
-<input [(ngModel)]="skill" />
+<div>
+  <div class="container">
+    <div>
+      <input [(ngModel)]="newTask" />
+      <button (click)="add()">Dodaj</button>
+    </div>
+  </div>
+  <div class="container">
+    <ng-container *ngIf="taskList.length > 0; else noTask">
+      <ul>
+        <li *ngFor="let task of taskList">
+          {{ task }}
+          <button (click)="remove(task)">Usuń</button>
+          <button (click)="done(task)">Zrobione</button>
+        </li>
+      </ul>
+    </ng-container>
+    <ng-template #noTask>
+      <p>Brak zadań, masz czas wolny!</p>
+    </ng-template>
+    <div>
+      <ul>
+        <p>Wykonane zadania: {{ taskDone.length }}</p>
+        <li *ngFor="let itemDone of taskDone">
+          {{ itemDone }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
