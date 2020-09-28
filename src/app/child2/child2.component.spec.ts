@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DoneTaskComponent } from './done-task.component';
+import { Child2Component } from './child2.component';
 
-describe('DoneTaskComponent', () => {
-  let component: DoneTaskComponent;
-  let fixture: ComponentFixture<DoneTaskComponent>;
+describe('Child2Component', () => {
+  let component: Child2Component;
+  let fixture: ComponentFixture<Child2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DoneTaskComponent ]
+      declarations: [ Child2Component ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DoneTaskComponent);
+    fixture = TestBed.createComponent(Child2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

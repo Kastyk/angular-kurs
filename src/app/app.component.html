@@ -1,13 +1,9 @@
-<div>
-  <div class="container">
-    <app-add-task (emitTask)="add($event)"></app-add-task>
-  </div>
-  <div class="container">
-    <app-todo-task
-      [tasksList]="taskList"
-      (emitDone)="done($event)"
-      (emitRemove)="remove($event)"
-    ></app-todo-task>
-    <app-done-task [taskDone]="taskDone"></app-done-task>
-  </div>
-</div>
+<app-child>
+  <h1>Wysyłam trochę kodu html</h1>
+  <ul>
+    <li>jeden</li>
+    <li>dwa</li>
+    <li>trzy</li>
+  </ul>
+  <app-child2></app-child2>
+</app-child>
