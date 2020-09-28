@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'app-root',
@@ -6,23 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Nauka angulara';
-  dog = new Dog('Reksio');
-  show = true;
+  tasksList = ['Sprzątanie kuwety', 'Gotowanie', 'Nauka angulara'];
+  /*Referencja, gdy nie jest przekazywana jako parametr */
+  @ViewChild('childRef') childComponent: ChildComponent;
 
-  changeTitle(): void {
-    this.title = 'Angular jest fajny!';
+  @ViewChild('inputText') input: ElementRef;
+
+  selected(task: string): void {
+    console.log(task);
   }
-  changeDog(): void {
-    // this.dog.name = 'Ciapek';
-    this.dog = new Dog('Ciapek');
+  /*Referencja z parametrem */
+  add(input: HTMLInputElement): void {
+    this.tasksList.push(input.value);
+    // this.childComponent.tasks = [];
+    this.input.nativeElement.value = '';
   }
-  nothing(): void {}
-  destroy(): void {
-    this.show = !this.show;
-  }
-  constructor() {}
-}
-export class Dog {
-  constructor(public name: string) {}
 }

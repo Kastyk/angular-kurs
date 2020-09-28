@@ -1,9 +1,7 @@
-<div *ngIf="show">
-  <app-child [inputText]="title" [inputDog]="dog"
-    >Wysyłam dodatkowy content</app-child
-  >
-</div>
-<button (click)="changeTitle()">Zmień tytuł</button>
-<button (click)="changeDog()">Zmień psa</button>
-<button (click)="nothing()">Nic nie rób</button>
-<button (click)="destroy()">Usuń komponent</button>
+<input #inputText />
+<button (click)="add(inputText)">Dodaj</button>
+<app-child
+  #childRef
+  [tasks]="tasksList"
+  (eventTask)="selected($event)"
+></app-child>
