@@ -1,2 +1,13 @@
-<app-child [tasks]="tasksList" (eventTask)="select($event)"></app-child>
-<!--Przekazujemy taski z listy w clasie App do komponentu child, oraz wykorzystujemy metodę select eventu eventTask-->
+<div>
+  <div class="container">
+    <app-add-task (emitTask)="add($event)"></app-add-task>
+  </div>
+  <div class="container">
+    <app-todo-task
+      [tasksList]="taskList"
+      (emitDone)="done($event)"
+      (emitRemove)="remove($event)"
+    ></app-todo-task>
+    <app-done-task [taskDone]="taskDone"></app-done-task>
+  </div>
+</div>
