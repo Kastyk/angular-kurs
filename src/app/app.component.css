@@ -1,4 +1,13 @@
-.container {
+.container,
+.box {
   display: flex;
+}
+.container {
   justify-content: center;
+}
+h1 {
+  text-align: center;
+}
+.box {
+  justify-content: space-between;
 }

@@ -4,24 +4,24 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddTaskComponent } from './add-task/add-task.component';
-import { TodoTaskComponent } from './todo-task/todo-task.component';
-import { DoneTaskComponent } from './done-task/done-task.component';
+import { Klikacz1Component } from './klikacz1/klikacz1.component';
+import { Klikacz2Component } from './klikacz2/klikacz2.component';
+import { ClickService } from './services/click.service';
+import { LogService } from './services/log.service';
 
 @NgModule({
   declarations: [
     // tablica komponentów, pipe'ów i dyrektyw
     AppComponent,
-    AddTaskComponent,
-    TodoTaskComponent,
-    DoneTaskComponent,
+    Klikacz1Component,
+    Klikacz2Component,
   ],
   imports: [
     BrowserModule, // moduł używany do odpalenie aplikacji w przeglądarce
     AppRoutingModule, // moduł używany do routingu
     FormsModule,
   ],
-  providers: [], // tutaj podajemy informacje o serwisach
+  providers: [ClickService, LogService], // tutaj podajemy informacje o serwisach
   bootstrap: [AppComponent], // komponent startowy
 })
 export class AppModule {}
