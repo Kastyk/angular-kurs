@@ -1,25 +1,31 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { ChildComponent } from './child/child.component';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  tasksList = ['Sprzątanie kuwety', 'Gotowanie', 'Nauka angulara'];
-  /*Referencja, gdy nie jest przekazywana jako parametr */
-  @ViewChild('childRef') childComponent: ChildComponent;
-
-  @ViewChild('inputText') input: ElementRef;
-
-  selected(task: string): void {
-    console.log(task);
+export class AppComponent implements OnInit {
+  taskList: string[] = [];
+  taskDone: string[] = [];
+  constructor() {}
+  ngOnInit(): void {
+    this.taskList = [
+      'Sprzątanie kuwety',
+      'Nauka Angulara',
+      'Podlewanie kwiatów',
+      'Zakupy',
+    ];
   }
-  /*Referencja z parametrem */
-  add(input: HTMLInputElement): void {
-    this.tasksList.push(input.value);
-    // this.childComponent.tasks = [];
-    this.input.nativeElement.value = '';
+  add(task: string): void {
+    this.taskList.push(task);
+  }
+  remove(task: string): void {
+    // ja bym spróbował z usunięciem tylko tego elementu, korzystając z indeksu
+    this.taskList = this.taskList.filter((item) => item !== task);
+  }
+  done(task: string): void {
+    this.taskDone.push(task);
+    this.remove(task);
   }
 }

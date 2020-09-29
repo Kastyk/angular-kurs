@@ -4,13 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChildComponent } from './child/child.component';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { TodoTaskComponent } from './todo-task/todo-task.component';
+import { DoneTaskComponent } from './done-task/done-task.component';
 
 @NgModule({
   declarations: [
     // tablica komponentów, pipe'ów i dyrektyw
     AppComponent,
-    ChildComponent,
+    AddTaskComponent,
+    TodoTaskComponent,
+    DoneTaskComponent,
   ],
   imports: [
     BrowserModule, // moduł używany do odpalenie aplikacji w przeglądarce
