@@ -9,12 +9,18 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
   constructor(private http: HttpClient) {}
+  // Jeśli observe: response
+  // to getPosts: <HttpResponse<Response>>
+  // a get<Response>()
   getPosts(): Observable<Array<Post>> {
     return this.http.get<Array<Post>>(
-      'https://jsonplaceholder.typicode.com/xyz',
+      'https://jsonplaceholder.typicode.com/posts' /* {
+      responseType: 'text' - zamienia json na string,
+      observe: response - zwraca całą odpowiedź serwera, nie tylko body
+    }*/,
     );
   }
-  getPost(id: number): any {
+  getPost(id: number): Observable<Post> {
     return this.http.get<Post>(
       `https://jsonplaceholder.typicode.com/posts/${id}`,
     );
